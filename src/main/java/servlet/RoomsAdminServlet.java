@@ -1,4 +1,4 @@
-package model.room;
+package servlet;
 
 import model.room.Room;
 import util.FileUtil;
