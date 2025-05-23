@@ -27,8 +27,7 @@ public class UserRegistrationServlet extends HttpServlet {
         // Check for duplicate email
         for (String[] user : FileUtil.readAll(USER_FILE)) {
             if (user.length >= 3 && user[2].equalsIgnoreCase(email)) {
-                request.setAttribute("error", "An account with this email already exists.");
-                request.getRequestDispatcher("register.jsp").forward(request, response);
+                response.sendRedirect("email-exists.jsp");
                 return;
             }
         }
@@ -41,5 +40,4 @@ public class UserRegistrationServlet extends HttpServlet {
 
         response.sendRedirect("login.jsp");
     }
-
 }
